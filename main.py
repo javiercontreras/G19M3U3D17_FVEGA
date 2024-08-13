@@ -29,46 +29,47 @@ opcion = input('''Ingrese una opción para Jugar!
         
     > ''')
 # 1. validar opcion
-opcion = 
+
 
 # 2. Definir el comportamiento de Salir
-if opcion == '0':
-    print()
+if opcion == '0' or opcion=='Salir':
+    print('Nos vemos pronto!')
     time.sleep(2)
     os.system(op_sys)
+    exit()
     # finalizar programa
-    
-
+elif opcion == '1' or opcion=='Jugar':   
+    correcto = True
 # Funcionamiento de preguntas
 while correcto and n_pregunta < 3*p_level:
     
     if n_pregunta == 0:
         p_level = input('¿Cuántas preguntas por nivel? (Máximo 3): ')
         # 3. Validar el número de preguntas por nivel
-        p_level = 
+        p_level = validate(eleccion= p_level, opciones = ['1','2','3'])
         
     if continuar == 'y':
         #contador de preguntas
         n_pregunta += 1
         # 4. Escoger el nivel de la pregunta
-        nivel = 
+        nivel = choose_level
         print(f'Pregunta {n_pregunta}:')
         # 5. Escoger el enunciado y las alternativas de una pregunta según el nivel escogido
-        enunciado, alternativas = 
+        # enunciado, alternativas = 
         #6. Imprimir el enunciado y sus alternativas en pantalla
         
         
         respuesta = input('Escoja la alternativa correcta:\n> ').lower()
         # 7. Validar la respuesta entregada
-        respuesta = 
+        # respuesta = 
         # 8. Verificar si la respuesta es correcta o no
-        correcto = 
+        # correcto = 
         
         if correcto and n_pregunta < 3*p_level:
             print('Muy bien sigue así!')
             continuar = input('Desea continuar? [y/n]: ').lower()
             #9. Validar si es que se responde y o n
-            continuar = 
+            # continuar = 
             os.system(op_sys)
         elif correcto and n_pregunta == 3*p_level:
             print(f'Felicitaciones, Has respondido {3*p_level} preguntas correctas. \n Has ganado la Trivia \n Gracias por Jugar, hasta luego!!!')

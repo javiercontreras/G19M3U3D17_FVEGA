@@ -1,63 +1,86 @@
-#1Importar scripts y librerias
+
+# No modificar
+from verify import verificar
+import preguntas as p
+from question import choose_q
+from print_preguntas import print_pregunta
+from level import choose_level
+from validador import validate
+import time
 import os
 import sys
-import display as dp
-import cocina as cook
-import art
-#2Definir constantes
-masas = {"1":"Masa Tradicional","2":"Masa Delgada","3":"Masa con bordes con Queso"}
-salsas = {"1":"Salsa de Tomate","2":"Salsa Alfredo", "3":"Salsa Barbecue","4":"Salsa Pesto"}
-extras = {"1":"Tomate", "2":"Champiñones","3":"Aceituna","4":"Cebolla","5":"Pollo","6":"Jamón","7":"Carne", "8":"Tocino","9":"Queso"}
-finish = bool(False)
-tiempo_base = int(20)
-extras_cliente = []
-#3definir funciones de MAIN
-def ux_spacio():
-    (print("--------------------------------------------"))
-    pass 
-# detecta el OS
-clear = 'cls' if sys.platform == 'win32' else 'clear'
-# ejecuta la limpieza
 
-#4 Iniciar el bucle
-while not finish:
-#4.1 Mostrar principales opciones
-    user_f_sel = dp.showMenu()
-    os.system(clear)
-    match user_f_sel:
-        #Armar pizza
-        case 1:
-            
-            masa = cook.seleccionarMasa(masas)
-            os.system(clear)
-            salsa = cook.seleccionarSalsas(salsas)
-            os.system(clear)
-            extras_cliente = cook.seleccionarExtras(extras, extras_cliente)
-            os.system(clear)
-        #Contenido
-        case 2:
-            os.system(clear)
-            dp.miPizzaJut(masa, salsa, extras_cliente, extras)
-        #tiempo
-        case 3:
-            os.system(clear)
-            orden_n_min = dp.tiempo_total(tiempo_base, extras_cliente)
-            print(f"Su pizzaJut estara lista en {orden_n_min}")
-            ux_spacio()
-        case 4:
-            user_select = input("Para Agregar digite \"A\" para eliminar digite \"E\" : ")
-            if user_select == 'A':
-                extras_cliente = cook.seleccionarExtras(extras, extras_cliente)
-            elif user_select == 'E':
-                extras_cliente = cook.eliminarExtras(extras,extras_cliente)
-        case 5:
-            finish = True
-            print("Gracias por elegir PizzaJut")
+# valores iniciales  
+n_pregunta = 0
+continuar = 'y'
+correcto = True
+p_level = 10
+op_sys = 'cls' if sys.platform == 'win32' else 'clear'
+
+
+# ----------------------------------------
+
+os.system(op_sys) # limpiar pantalla
+
+print('Bienvenido a la Trivia')
+opcion = input('''Ingrese una opción para Jugar!
+        1. Jugar
+        0. Salir
+        
+    > ''')
+# 1. validar opcion
+opcion = 
+
+# 2. Definir el comportamiento de Salir
+if opcion == '0':
+    print()
+    time.sleep(2)
+    os.system(op_sys)
+    # finalizar programa
+    
+
+# Funcionamiento de preguntas
+while correcto and n_pregunta < 3*p_level:
+    
+    if n_pregunta == 0:
+        p_level = input('¿Cuántas preguntas por nivel? (Máximo 3): ')
+        # 3. Validar el número de preguntas por nivel
+        p_level = 
+        
+    if continuar == 'y':
+        #contador de preguntas
+        n_pregunta += 1
+        # 4. Escoger el nivel de la pregunta
+        nivel = 
+        print(f'Pregunta {n_pregunta}:')
+        # 5. Escoger el enunciado y las alternativas de una pregunta según el nivel escogido
+        enunciado, alternativas = 
+        #6. Imprimir el enunciado y sus alternativas en pantalla
+        
+        
+        respuesta = input('Escoja la alternativa correcta:\n> ').lower()
+        # 7. Validar la respuesta entregada
+        respuesta = 
+        # 8. Verificar si la respuesta es correcta o no
+        correcto = 
+        
+        if correcto and n_pregunta < 3*p_level:
+            print('Muy bien sigue así!')
+            continuar = input('Desea continuar? [y/n]: ').lower()
+            #9. Validar si es que se responde y o n
+            continuar = 
+            os.system(op_sys)
+        elif correcto and n_pregunta == 3*p_level:
+            print(f'Felicitaciones, Has respondido {3*p_level} preguntas correctas. \n Has ganado la Trivia \n Gracias por Jugar, hasta luego!!!')
+            time.sleep(3)
+            os.system(op_sys)
+        else: 
+            print(f'Lo siento, conseguiste {n_pregunta - 1} respuestas correctas,\n Sigue participando!!')
+            time.sleep(3)
             exit()
-        case _ :
-            print("Default")
-#4.2 Cliente inicia la seleccion de ingredientes
-
-#4.3 Se muestra seleccuib de usuarui y tiempo estimado  
-
-#5.Opciones de Cambiar  o Agregar 
+    else: 
+        print('Nos vemos la proxima vez, sigue practicando')
+        time.sleep(3)
+        exit()
+            
+            
